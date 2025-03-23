@@ -475,10 +475,10 @@ if __name__ == '__main__':
     gene_sssom_path = os.path.join(args.project_dir, "ontology_files", "gene_mappings.sssom.tsv")
     hp_db_path = os.path.join(args.project_dir, "ontology_files", "hp.db")
 
-
-    if args.subsample == False:
+    if (args.subsample == False) or (args.subsample == "False") or (args.subsample == "false"):
         outname = "{}_results.pkl.gz".format(args.release)
     else:
+        args.subsample = int(args.subsample)
         outname = "{}_results_subsample_{}.pkl.gz".format(args.release, args.subsample)
 
     res_path = os.path.join(args.project_dir, "results", outname)

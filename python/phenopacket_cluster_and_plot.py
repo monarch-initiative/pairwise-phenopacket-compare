@@ -182,9 +182,10 @@ if __name__ == '__main__':
     ### PROGRAM ###
 
     # Grab relevant filename and load data
-    if args.subsample == False:
+    if (args.subsample == False) or (args.subsample == "False") or (args.subsample == "false"):
         outname = "{}_results.pkl.gz".format(args.release)
     else:
+        args.subsample = int(args.subsample)
         outname = "{}_results_subsample_{}.pkl.gz".format(args.release, args.subsample)
 
     inpath = os.path.join(args.project_dir, "results", outname)
