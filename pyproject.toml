@@ -1,0 +1,28 @@
+[tool.poetry]
+name = "phenopacket-pairwise-similarity"
+version = "0.1.0"
+description = ""
+package-mode = false
+authors = ["Aaron Odell <aaron@tislab.org>"]
+
+[tool.poetry.dependencies]
+python = ">=3.10, <4.0.0"
+pheval = ">=0.4.2"
+pandas = ">=2.0"
+numpy = "^1.21.2"
+scipy = "^1.7.1"
+requests = ">=2.26.0"
+networkx = "^2.6.3"
+IPython = "^8.29.0"
+pydantic = ">=2.10"
+matplotlib = "^3.8.0"
+xarray = ">=2024.5.0"
+
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+
+
+
