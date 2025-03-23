@@ -460,7 +460,7 @@ if __name__ == '__main__':
         parser.add_argument("-p","--project_dir", help="Top most project directory", required=True, type=str, default=None)
         parser.add_argument("-r","--release", help="Phenopackets store release version (0.1.24, 0.1.23, etc...)", required=True, type=str, default=None)
         parser.add_argument("-c","--num_proc", help="number of cpu cores to use", required=False, type=int, default=2)
-        parser.add_argument("-s","--subsample", help="subsample data for testing", required=False, type=int, default=False)
+        parser.add_argument("-s","--subsample", help="subsample data for testing", required=False, default=False)
         return parser.parse_args()
 
     args = parse_input_command()
