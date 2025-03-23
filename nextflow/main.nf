@@ -21,19 +21,19 @@ workflow {
 
     // Setup data environment
     get_env()
-    download_and_setup(get_env.out.env_path)
+    download_and_setup(get_env.out.env_path, release)
 
     // Compute pairwise comparisons
     compute_pairwise_comps(get_env.out.env_path, 
                            download_and_setup.out.project_path,
-                           params.release,
-                           params.sub_sample)
+                           release,
+                           sub_sample)
 
     // Cluster and plot
     cluster_and_plot(get_env.out.env_path, 
                      download_and_setup.out.project_path,
                      compute_pairwise_comps.out.comp_sig,
-                     params.release,
-                     params.sub_sample,
-                     params.sim_metric)
+                     release,
+                     sub_sample,
+                     sim_metric)
 }

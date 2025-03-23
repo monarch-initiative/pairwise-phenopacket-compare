@@ -17,6 +17,7 @@ def download_file_url(url: str, outdir: str, extract_gz: bool = False, overwrite
     
     # Download and write file
     filename = os.path.join(outdir, url.split("/")[-1])
+    fname = filename.split("/")[-1]
 
     if overwrite == True:
         if os.path.isfile(filename):
@@ -29,7 +30,7 @@ def download_file_url(url: str, outdir: str, extract_gz: bool = False, overwrite
     
     # Extract gzip
     if extract_gz != False:
-        outpath = os.path.join(outdir, filename.replace(".gz", ""))
+        outpath = os.path.join(outdir, fname.replace(".gz", ""))
         with gzip.open(filename, 'rb') as f_in:
             with open(outpath, 'wb') as f_out:
                 shutil.copyfileobj(f_in, f_out)
