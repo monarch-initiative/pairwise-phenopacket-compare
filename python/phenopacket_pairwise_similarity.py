@@ -177,7 +177,7 @@ def filter_non_zero_data(phen_data, sub_sample=False):
     print("- {} samples removed with zero phenotypes...".format(removed))
     
     # Default is no subsampleing
-    if sub_sample != False:
+    if type(sub_sample) != type(1):
     
         # Subsample (to make full pipeline connection easier)
         sub_samp = 0
