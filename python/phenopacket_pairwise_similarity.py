@@ -469,7 +469,6 @@ if __name__ == '__main__':
     ###############
     ### PROGRAM ###
 
-
     #all_phens_dir = "/Users/ao33/Desktop/PHENOPACKETS_STORE/0.1.24/"
     all_phens_dir = os.path.join(args.project_dir, "phenopackets_store", args.release)
     mondo_sssom_path = os.path.join(args.project_dir, "ontology_files", "mondo.sssom.tsv")
@@ -511,28 +510,3 @@ if __name__ == '__main__':
     print("- Semantic similarity comparisons completed...")
     print("- Combining and writing results to {}...".format(res_path))
     comp_data = merge_and_sort_parallel_output(output=output, labels=labs, outpath=res_path)
-
-    
-    ###sim_metric = "ancestor_information_content"
-    ###sim_metric = "jaccard_similarity"
-    ###sim_metric = "phenodigm_score"
-
-    dendro = averageClusterNodes(normalize_condensed_matrix(comp_data[sim_metric])[0], labs, noPlot=True)
-    expanded_matrix = scipy.spatial.distance.squareform(comp_data[sim_metric], checks=False)
-    expanded_matrix, labs = reorderMatrix(expanded_matrix, labs,dendro["leaves"])
-    collapsed_matrix = scipy.spatial.distance.squareform(expanded_matrix, checks=False)
-
-    ###out_comparisons_path = "/Users/ao33/Desktop/PHENOPACKETS_EXPERIMENTAL/sim_results_testing.pkl.gz"
-    ###pickle.dump({"similarity_matrix_collapsed":scipy.spatial.distance.squareform(expanded_matrix,checks=False),
-    ###             "labels":labs}, gzip.open(out_comparisons_path, 'wb'))
-
-    plotContactMap(expanded_matrix,
-                   wInches=32,
-                   hInches=32,
-                   lP=1,
-                   hP=98,
-                   reverseColorMap='_r',
-                   showPlot=True,
-                   savePlot=False,
-                   title=False,
-                   titleSuffix=False)
