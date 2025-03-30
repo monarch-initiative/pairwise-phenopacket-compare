@@ -9,7 +9,7 @@ include { cluster_and_plot } from './modules/cluster_and_plot.nf'
 // Phenologs calculation parameters 
 params.release = "0.1.24"
 params.cpu_cores = 10 // Not actuall used (any more... config takes care of this)
-params.sub_sample = 50
+params.sub_sample = false
 params.sim_metric = "aic"
 
 
